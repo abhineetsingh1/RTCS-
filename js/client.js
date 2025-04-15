@@ -26,11 +26,11 @@ const append = (message, position) => {
 
 socket.emit('new-user-joined', name);
 
-// socket.on('receive', data => {
-//     const element = document.createElement('div');
-//     element.innerText = `${data.name}: ${data.message}`;
-//     messageContainer.append(element);
-// });
+socket.on('receive', data => {
+    const element = document.createElement('div');
+    element.innerText = `${data.name}: ${data.message}`;
+    messageContainer.append(element);
+});
 
 socket.on('user-joined', name => {
     append(`${name} joined the chat`, 'right');
